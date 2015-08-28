@@ -1,2 +1,8 @@
 <h1>Make a new task</h1>
-<%= render 'form'%>
+<form action="/tasks" method="GET">
+<input type="text" placeholder="Title" name="title">
+<input type="text" placeholder="Content" name="content">
+<input type="date" name="duedate">
+<input type="text" placeholder="Location" name="location">
+<button>Add task</button>
+</form>

@@ -3,17 +3,21 @@ class TasksController < ApplicationController
  # before_action :authenticate, except: [:index]
 
 # GET /tasks
-  def index
-    if params[:user_id]
-      @tasks = Task.where({user_id: params[:user_id]})
-    else
-      @tasks = Task.all
-    end
+  # def index
+  #   if params[:user_id]
+  #     @tasks = Task.where({user_id: params[:user_id]})
+  #   else
+  #     @tasks = Task.all
+  #   end
+  # end
+
+  def new
+    @task = Task.new
   end
 
 # GET /tasks/new
-  def new
-    Task.create(post_params)
+  def create
+    Task.create(task_params)
     redirect_to tasks_path
   end
 
@@ -41,8 +45,7 @@ class TasksController < ApplicationController
   end
 
   private
-
   def task_params
-    params.require(:task).permit(:title, :content, :duedate, :location )
-
+    params.require(:task).permit(:title, :content, :duedate, :location, :user_id)
+  end
 end
