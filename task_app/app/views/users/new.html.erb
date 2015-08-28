@@ -1,0 +1,21 @@
+
+<h4>Start Tasking</h4>
+
+<!--  <% if @user.errors.any? %>
+        <div id="error-explanation">
+          <p><%= pluralize(@user.errors.count, "error")%> prohibited this user from being saved:</p>
+          <ul>
+          <% @user.errors.full_messages.each do |message| %>
+          <li style="color: red"><%= message %></li>
+          <% end %>
+        </ul>
+        </div>
+        <% end %> -->
+
+      <%= form_for @user do |f| %>
+      <%= f.text_field :name, placeholder: 'Name' %></br>
+      <%= f.text_field :email, placeholder: 'Email' %></br>
+      <%= f.password_field :password, placeholder: 'Password' %></br>
+      <%= f.password_field :password_confirmation, placeholder: 'Password Confirmation' %></br>
+      <%= f.button 'Signup' %>
+      <% end %>	
