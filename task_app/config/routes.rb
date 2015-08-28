@@ -20,6 +20,7 @@ Rails.application.routes.draw do
   end
   resources :users
   resources :tasks
+  # resources :messages
 
   get '/login' => "sessions#new"
   post '/login' => "sessions#create"
