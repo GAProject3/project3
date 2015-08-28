@@ -1,0 +1,9 @@
+<h1>Edit task</h1>
+<form action="/tasks" method="GET">
+  <input type="text" placeholder="<%= @task.title%>" name="title">
+  <input type="text" placeholder="<%= @task.content%>" name="content">
+  <input type="date" placeholder="<%= @task.duedate%>" name="duedate">
+  <input type="text" placeholder="<%= @task.location%>" name="location">
+  <button>Edit task</button>
+
+</form>
