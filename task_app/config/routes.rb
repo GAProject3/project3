@@ -18,7 +18,7 @@ Rails.application.routes.draw do
   resources :users do
     resources :messages 
   end
-
+  resources :users
   resources :tasks
 
   get '/login' => "sessions#new"
