@@ -1,7 +1,7 @@
 class MessagesController < ApplicationController
 
 	def index
-		@users = User.find(params[:user_id])
+		@user = User.find(params[:user_id])
 		@messages = @user.messages
 	end
 
@@ -13,7 +13,7 @@ class MessagesController < ApplicationController
 	def create
 		@user = User.find(params[:user_id])
 		@message = Message.create(message_params) 
-		redirect_to user_messages
+		redirect_to user_path(@user)
 	end
 
 	def show
@@ -23,12 +23,15 @@ class MessagesController < ApplicationController
 	def destroy
 		@message = Message.find(params[:id])
 		@message.delete
-		redirect_to user_messages
+		redirect_to @message.user
 	end
 
 	private
 	def message_params
-		params.require(:message).permit(:content, :attachment, :sender_id)
+		params
+		.require(:message)
+		.permit(:content, :attachment, :sender_id)
+		.merge({user_id: params[:user_id]})
 	end
 
 end

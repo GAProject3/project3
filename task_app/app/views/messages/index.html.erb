@@ -5,5 +5,7 @@
 		<%= link_to message.content, user_message_path(message) %>
 	</li>
 	<% end %>
+
+	<%= link_to 'Compose a New Message', new_user_message(@user) %>
 </ul>
 
