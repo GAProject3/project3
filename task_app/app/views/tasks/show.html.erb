@@ -1,0 +1,9 @@
+<h2><%= @task.title%></h2>
+<p><%= @task.duedate%></p>
+<p><%= @task.content%></p>
+<p><%= @task.location%></p>
+<h5>Created by: <%= task.user.name%></h5>
+<%= link_to 'Edit task', edit_task_path %>
+<%= link_to 'Delete task', post_path, method: :delete %>
+
+

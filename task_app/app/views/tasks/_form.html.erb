@@ -1,0 +1,12 @@
+<%= form_for @task do |f| %>
+  <%= f.label :title, 'Title'%>
+  <%= f.hidden_field :user_id, value:session[:user_id]%>
+  <%= f.label :content, 'Content'%>
+  <%= f.text_field :content, placeholder: 'Content' %>
+  <%= f.label :duedate, 'Duedate'%>
+  <%= f.date_field :duedate %>
+  <%= f.label :location, 'Location'%>
+  <%= f.text_field :location, 'Location'%>
+  <%= f.submit %>
+
+<% end %>
