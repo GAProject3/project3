@@ -1,4 +1,8 @@
 class UsersController < ApplicationController
+	def index
+		@user = User.where({user_id: params[:name]})
+
+	end
 	def new
   @user = User.new
 	end
@@ -7,7 +11,9 @@ class UsersController < ApplicationController
 		@user = User.create(user_params)
   		if @user.save
   			session[:user_id] = @user_id
-	  			render template "users/:id"
+	  			redirect_to  user_post
+	  			else
+					render template: "sessions/new"
   		end
   	end
   
@@ -16,7 +22,7 @@ class UsersController < ApplicationController
 
 private
 
-	def users_params
+	def user_params
 		params.require(:user).permit(:name, :email, :password, :password_confirmation)
 	end
 
